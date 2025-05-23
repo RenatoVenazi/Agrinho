@@ -1,44 +1,394 @@
-@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Rakkas&display=swap');
+/* style.css */
 
-/* Variáveis */
-:root {
-    --primary-color: #026773;
-    --secondary-color: #3CA6A6;
-    --text-color: #024959;
-    --background-color: #F2E3D5;
-    --button-hover: #012E40;
-    --font-body: "Chocolate Classical Sans", serif;
-    --font-titulo: "Rakkas", serif;
-}
-
-/* código omitido */
-/* código omitido */
-
-/* Reset */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-body);
 }
 
-/* Corpo da página */
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #f8f8f8;
 }
 
-h3 {
-    margin-top: 25px;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden; /* Para floats */
+    padding: 0 20px;
 }
 
-p {
+/* Header */
+header {
+    background-color: #28a745; /* Verde vibrante */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    float: left;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header .logo i {
+    margin-right: 10px;
+}
+
+header nav {
+    float: right;
+    margin-top: 5px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #d4edda; /* Verde mais claro */
+}
+
+/* Botões Gerais */
+.btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #218838; /* Verde mais escuro */
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    background-color: #007bff; /* Azul */
+}
+
+.btn-small:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1600x700?text=Natureza+Verde') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    padding: 20px; /* Adiciona padding para dispositivos menores */
+}
+
+.hero::before { /* Camada escura sobre a imagem */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+/* Seções Gerais */
+section {
+    padding: 60px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+section h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #28a745;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Sobre Nós */
+.about p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1em;
+}
+
+/* Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-item {
+    background-color: #f0fdf4; /* Verde bem clarinho */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-item h4 {
+    color: #28a745;
+    margin: 20px 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+}
+
+.project-item p {
+    padding: 0 20px 20px;
+    font-size: 0.95em;
+}
+
+.project-item .btn-small {
+    margin-bottom: 20px;
+}
+
+/* Notícias */
+.news-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.news-item h4 {
+    margin-bottom: 10px;
+}
+
+.news-item h4 a {
+    color: #333;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+}
+
+.news-item h4 a:hover {
+    color: #28a745;
+}
+
+.news-item .date {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.news-item .date i {
+    margin-right: 5px;
+    color: #28a745;
+}
+
+.news .btn {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+}
+
+/* Participe */
+.participate-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.option-item {
+    background-color: #e6ffee; /* Verde claro */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.option-item i {
+    font-size: 3.5rem;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.option-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Contato */
+.contact p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact button.btn {
+    display: block;
+    width: 100%;
+    border: none;
+    cursor: pointer;
     margin-top: 20px;
 }
 
-img {
-    max-width: 90%;
+.contact-info {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
 }
 
-/* código omitido */
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #28a745;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #28a745;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header .logo,
+    header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .project-grid,
+    .participate-options {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .project-item,
+    .option-item {
+        margin: 10px 0;
+    }
+
+    .news-item {
+        padding: 15px;
+    }
+}
